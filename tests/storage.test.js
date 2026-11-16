@@ -7,17 +7,17 @@ globalThis.localStorage = {
   setItem(key, value) { this.data[key] = value; },
 };
 
-const { loadTasks, addTask, toggleTask, removeTask } = require("../src/storage.js");
+const { fetchTasks, addTask, toggleTask, removeTask } = require("../src/storage.js");
 
 test("addTask stores a task", () => {
   addTask("write report");
-  assert.deepStrictEqual(loadTasks().map((t) => t.title), ["write report"]);
+  assert.deepStrictEqual(fetchTasks().map((t) => t.title), ["write report"]);
 });
 
 test("toggleTask and removeTask", () => {
-  const [task] = loadTasks();
+  const [task] = fetchTasks();
   toggleTask(task.id);
-  assert.strictEqual(loadTasks()[0].done, true);
+  assert.strictEqual(fetchTasks()[0].done, true);
   removeTask(task.id);
-  assert.deepStrictEqual(loadTasks(), []);
+  assert.deepStrictEqual(fetchTasks(), []);
 });

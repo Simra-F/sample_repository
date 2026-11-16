@@ -15,7 +15,7 @@ function renderItem(task) {
 function renderTasks() {
   const list = document.getElementById("task-list");
   list.innerHTML = "";
-  const tasks = loadTasks();
+  const tasks = fetchTasks();
   for (const task of applyFilter(tasks, currentFilter)) {
     list.appendChild(renderItem(task));
   }
