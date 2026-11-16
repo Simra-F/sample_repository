@@ -1,9 +1,9 @@
 // Entry point: wires the components together once the page has loaded.
-function init() {
+function newInit() {
   applyTheme(localStorage.getItem(THEME_KEY) || THEMES[0]);
   mountToolbar();
   mountFilters();
   renderTasks();
 }
 
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", newInit);
