@@ -14,7 +14,7 @@ function handleClear() {
   renderTasks();
 }
 
-const BUTTONS = { "Add": handleAdd, "Clear all": handleClear, "Theme": nextTheme };
+const BUTTONS = { "Add": handleAdd, "Clear all": handleClear, "Theme": newNextTheme };
 
 function mountToolbar() {
   const bar = document.getElementById("toolbar");
