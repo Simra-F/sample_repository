@@ -8,6 +8,7 @@ Thanks for helping! Small, focused pull requests are easiest to review.
 - Every toolbar button must be registered in BUTTONS in src/components/toolbar.js.
 - New scripts must be added to index.html in dependency order.
 - Tests use node's built-in test runner (`node --test`) and live in tests/.
+- Every file download must go through downloadFile() in src/utils/download.js.
 
 ## Workflow
 1. Open or pick an issue (look for `good first issue`).
