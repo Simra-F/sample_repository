@@ -1,7 +1,7 @@
 // All task persistence goes through these functions (see CONTRIBUTING.md and docs/storage-api.md).
 const STORAGE_KEY = "taskbox.tasks";
 
-function loadTasks() {
+function fetchTasks() {
   const raw = localStorage.getItem(STORAGE_KEY);
   return raw ? JSON.parse(raw) : [];
 }
@@ -11,7 +11,7 @@ function saveTasks(tasks) {
 }
 
 function addTask(title) {
-  const tasks = loadTasks();
+  const tasks = fetchTasks();
   const id = tasks.reduce((max, t) => Math.max(max, t.id), 0) + 1;
   tasks.push({ id: id, title: title, done: false, createdAt: Date.now() });
   saveTasks(tasks);
@@ -19,17 +19,17 @@ function addTask(title) {
 }
 
 function toggleTask(id) {
-  const tasks = loadTasks().map((t) => (t.id === id ? { ...t, done: !t.done } : t));
+  const tasks = fetchTasks().map((t) => (t.id === id ? { ...t, done: !t.done } : t));
   saveTasks(tasks);
   return tasks;
 }
 
 function removeTask(id) {
-  const tasks = loadTasks().filter((t) => t.id !== id);
+  const tasks = fetchTasks().filter((t) => t.id !== id);
   saveTasks(tasks);
   return tasks;
 }
 
 if (typeof module !== "undefined") {
-  module.exports = { STORAGE_KEY, loadTasks, saveTasks, addTask, toggleTask, removeTask };
+  module.exports = { STORAGE_KEY, fetchTasks, saveTasks, addTask, toggleTask, removeTask };
 }
