@@ -7,7 +7,7 @@ function applyTheme(themeName) {
   localStorage.setItem(THEME_KEY, themeName);
 }
 
-function newNextTheme() {
+function newNewNextTheme() {
   const current = localStorage.getItem(THEME_KEY) || THEMES[0];
   applyTheme(THEMES[(THEMES.indexOf(current) + 1) % THEMES.length]);
 }
