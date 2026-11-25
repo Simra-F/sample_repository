@@ -16,7 +16,7 @@ function handleClear() {
 
 const BUTTONS = { "Add": handleAdd, "Clear all": handleClear, "Theme": nextTheme };
 
-function mountToolbar() {
+function buildToolbar() {
   const bar = document.getElementById("toolbar");
   for (const [label, handler] of Object.entries(BUTTONS)) {
     const button = document.createElement("button");
